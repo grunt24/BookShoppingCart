@@ -1,0 +1,16 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+
+    Layout = "Shared/_UserLayout.cshtml";
+
+    if (User.IsInRole("Admin"))
+    {
+        Layout = "Shared/_AdminLayout.cshtml";
+    }
+}
+else
+{
+    Layout = "Shared/_Layout.cshtml";
+
+}

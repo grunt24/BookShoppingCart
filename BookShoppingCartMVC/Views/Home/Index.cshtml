@@ -1,0 +1,78 @@
+﻿@using BookShoppingCartMVC.Models.DTOs;
+@model BookDisplayModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="pt-4">
+    <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden shadow" for="genreId">Genres</label>
+            <select class="form-select" id="genreId" name="genreId">
+                <option selected>All Genre</option>
+
+                @foreach (var genre in Model.Genres)
+                {
+                    <option selected="@(genre.Id == Model.GenreId)" value="@genre.Id">@genre.GenreName</option>
+
+                }
+            </select>
+        </div>
+
+        <div class="col-12">
+            <label class="visually-hidden" for="sterm">Search by title</label>
+            <div class="input-group">
+                <div class="input-group-text"></div>
+                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by title">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-info rounded-5">Submit</button>
+            <a href="Home/Index" class="btn btn-dark rounded-5">Reset</a>
+        </div>
+    </form>
+
+</div>
+
+<div id="bookCard" class="w-100 d-flex flex-wrap justify-content-center py-5">
+    @foreach (var book in Model.Books)
+    {
+        <div class="card mx-3 mb-4 rounded-1"
+             style="width: 250px;  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;">
+
+            @if (string.IsNullOrEmpty(book.Image))
+            {
+                <img id="BookImage" src="/images/no-image.jpg"
+                     style="height: 300px; width: 248px;
+                        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 80px -40px;
+"
+                     class="card-img-top rounded" alt="..." />
+            }
+            else
+            {
+                <img id="bookImage" src="/images/@book.Image" style="height: 300px; width: 249px;
+                box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 80px -40px;
+" class="card-img-top rounded" alt="..." />
+            }
+
+            <div class="card-body">
+                <h5 class="card-title">@book.BookName</h5>
+                <p class="card-text">
+                    Genre: @book.GenreName
+                </p>
+                <p class="card-text">
+                    Author: @book.AuthorName
+                </p>
+                <p class="card-text">
+                    Price: @book.Price
+                </p>
+
+                <button type="button" onclick="add(@book.Id)" id="addToCartBtn" class="btn btn-info rounded-2">Add to cart</button>
+            </div>
+        </div>
+    }
+</div>
+
+
