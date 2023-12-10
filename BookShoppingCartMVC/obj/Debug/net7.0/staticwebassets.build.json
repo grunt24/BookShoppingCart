@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c8EzyZ88uWm6GCoJOURsH7Sqgjow81k4V+Y3b61ktkg=",
+  "Hash": "cB1ObV0011Sw0RAD8ZmQz5N5xXRtkJSGCSyeSuYlTAw=",
   "Source": "BookShoppingCartMVC",
   "BasePath": "_content/BookShoppingCartMVC",
   "Mode": "Default",
@@ -1156,6 +1156,40 @@
       "OriginalItemSpec": "wwwroot\\images\\around-the-world.jpg"
     },
     {
+      "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\book\\0065d96f-40e1-480a-85f9-b657ecac68ad_lasheng.png",
+      "SourceId": "BookShoppingCartMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\",
+      "BasePath": "_content/BookShoppingCartMVC",
+      "RelativePath": "images/book/0065d96f-40e1-480a-85f9-b657ecac68ad_lasheng.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\0065d96f-40e1-480a-85f9-b657ecac68ad_lasheng.png"
+    },
+    {
+      "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\book\\14944756-9dcb-45aa-87a8-52ccf31759a9_around-the-world.jpg",
+      "SourceId": "BookShoppingCartMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\",
+      "BasePath": "_content/BookShoppingCartMVC",
+      "RelativePath": "images/book/14944756-9dcb-45aa-87a8-52ccf31759a9_around-the-world.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book\\14944756-9dcb-45aa-87a8-52ccf31759a9_around-the-world.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\call-of-the-wild.jpg",
       "SourceId": "BookShoppingCartMVC",
       "SourceType": "Discovered",
@@ -1309,12 +1343,12 @@
       "OriginalItemSpec": "wwwroot\\images\\ts.jpg"
     },
     {
-      "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\js\\script.js",
+      "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\js\\UserLogin.js",
       "SourceId": "BookShoppingCartMVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\",
       "BasePath": "_content/BookShoppingCartMVC",
-      "RelativePath": "js/script.js",
+      "RelativePath": "js/UserLogin.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1323,7 +1357,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\script.js"
+      "OriginalItemSpec": "wwwroot\\js\\UserLogin.js"
     },
     {
       "Identity": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\theme\\css\\sb-admin-2.css",

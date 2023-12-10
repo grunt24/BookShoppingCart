@@ -15,7 +15,7 @@ namespace BookShoppingCartMVC.Models
         public double Price { get; set; }
         [Required]
         [ValidateNever]
-        public string? Image { get; set; }
+        public string? Image { get; set; } 
         [Required]
         [ValidateNever]
         public int GenreId { get; set; }

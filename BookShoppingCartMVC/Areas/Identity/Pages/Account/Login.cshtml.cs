@@ -91,6 +91,7 @@ namespace BookShoppingCartMVC.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
+
             returnUrl ??= Url.Content("~/");
 
             // Clear the existing external cookie to ensure a clean login process
@@ -103,31 +104,33 @@ namespace BookShoppingCartMVC.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            returnUrl ??= Url.Content("~/");
 
-            if (User.IsInRole("Admin"))
-            {
-                returnUrl = Url.Content("/Admin/Dashboard");
-            }
-            else
-            {
-                returnUrl = Url.Content("/Home/Index");
-            }
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
                 if (result.Succeeded)
                 {
+                    var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
+
+                    // Check if the user is in the "Admin" role
+                    var isAdmin = await _signInManager.UserManager.IsInRoleAsync(user, "Admin");
+
+                    // Set the appropriate returnUrl based on the user's role
+                    returnUrl = isAdmin ? "/Admin/Dashboard" : "/Home/Index";
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
+
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
+
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("User account locked out.");
@@ -143,5 +146,6 @@ namespace BookShoppingCartMVC.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
     }
 }

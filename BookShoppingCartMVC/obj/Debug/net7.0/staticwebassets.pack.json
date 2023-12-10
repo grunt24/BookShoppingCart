@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\images\\around-the-world.jpg"
     },
     {
+      "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\book\\0065d96f-40e1-480a-85f9-b657ecac68ad_lasheng.png",
+      "PackagePath": "staticwebassets\\images\\book\\0065d96f-40e1-480a-85f9-b657ecac68ad_lasheng.png"
+    },
+    {
+      "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\book\\14944756-9dcb-45aa-87a8-52ccf31759a9_around-the-world.jpg",
+      "PackagePath": "staticwebassets\\images\\book\\14944756-9dcb-45aa-87a8-52ccf31759a9_around-the-world.jpg"
+    },
+    {
       "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\images\\call-of-the-wild.jpg",
       "PackagePath": "staticwebassets\\images\\call-of-the-wild.jpg"
     },
@@ -61,8 +69,8 @@
       "PackagePath": "staticwebassets\\images\\ts.jpg"
     },
     {
-      "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\js\\script.js",
-      "PackagePath": "staticwebassets\\js\\script.js"
+      "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\js\\UserLogin.js",
+      "PackagePath": "staticwebassets\\js\\UserLogin.js"
     },
     {
       "Id": "C:\\Users\\Brent Jay\\Desktop\\BookShoppingCart\\BookShoppingCartMVC\\BookShoppingCartMVC\\wwwroot\\theme\\css\\sb-admin-2.css",

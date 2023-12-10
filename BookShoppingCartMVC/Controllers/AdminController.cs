@@ -3,9 +3,12 @@ using BookShoppingCartMVC.Models;
 using BookShoppingCartMVC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using BookShoppingCartMVC.Data;
+using BookShoppingCartMVC.Constants;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookShoppingCartMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly ILogger<HomeController> _logger;

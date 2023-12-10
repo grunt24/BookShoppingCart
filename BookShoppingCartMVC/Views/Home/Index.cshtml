@@ -5,36 +5,71 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="pt-4">
-    <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-12">
-            <label class="visually-hidden shadow" for="genreId">Genres</label>
-            <select class="form-select" id="genreId" name="genreId">
-                <option selected>All Genre</option>
 
-                @foreach (var genre in Model.Genres)
-                {
-                    <option selected="@(genre.Id == Model.GenreId)" value="@genre.Id">@genre.GenreName</option>
-
-                }
-            </select>
-        </div>
-
-        <div class="col-12">
-            <label class="visually-hidden" for="sterm">Search by title</label>
-            <div class="input-group">
-                <div class="input-group-text"></div>
-                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by title">
+@if (User.IsInRole("Admin"))
+{
+    <form asp-action="Index" class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by title" aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="col-12">
-            <button type="submit" class="btn btn-info rounded-5">Submit</button>
-            <a href="Home/Index" class="btn btn-dark rounded-5">Reset</a>
+            <div class="col-md-4">
+                <select class="form-select btn bg-white dropdown-toggle" id="genreId" name="genreId" aria-haspopup="true">
+
+                    <option selected>All Genre</option>
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <option selected="@(genre.Id == Model.GenreId)" value="@genre.Id">@genre.GenreName</option>
+                    }
+                </select>
+            </div>
         </div>
     </form>
 
-</div>
+
+}
+else
+{
+    <div class="pt-4">
+        <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
+            <div class="col-12">
+                <label class="visually-hidden shadow" for="genreId">Genres</label>
+                <select class="form-select" id="genreId" name="genreId">
+                    <option selected>All Genre</option>
+
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <option selected="@(genre.Id == Model.GenreId)" value="@genre.Id">@genre.GenreName</option>
+
+                    }
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="visually-hidden" for="sterm">Search by title</label>
+                <div class="input-group">
+                    <div class="input-group-text"></div>
+                    <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Search by title">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-info rounded-5">Submit</button>
+                <a href="Home/Index" class="btn btn-dark rounded-5">Reset</a>
+            </div>
+        </form>
+
+    </div>
+
+}
 
 <div id="bookCard" class="w-100 d-flex flex-wrap justify-content-center py-5">
     @foreach (var book in Model.Books)
@@ -69,10 +104,58 @@
                     Price: @book.Price
                 </p>
 
-                <button type="button" onclick="add(@book.Id)" id="addToCartBtn" class="btn btn-info rounded-2">Add to cart</button>
+                @if (User.IsInRole("Admin")){
+
+                }
+                else
+                {
+                    <button type="button" onclick="add(@book.Id)" id="addToCartBtn" class="btn btn-info rounded-2">Add to cart</button>
+
+                }
             </div>
         </div>
     }
 </div>
+@section Scripts{
+    <script>
+        async function add(bookId) {
+            var usernameEl = document.getElementById("username");
+            if (!usernameEl) {
+                window.location.href = "/Identity/Account/Login";
+            } else {
+                try {
+                    var response = await fetch(`/Cart/AddItem?bookId=${bookId}`);
+                    if (response.status == 200) {
+                        var result = await response.json();
+                        var cartCountEl = document.getElementById("cartCount");
+                        cartCountEl.innerHTML = result;
+
+                        // Show SweetAlert success message
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Added to Cart!',
+                            text: 'The book has been successfully added to your cart.',
+                        }).then(() => {
+                            // Redirect to the cart or any other action
+                            window.location.href = "#cartCount";
+                        });
+                    }
+                } catch (err) {
+                    console.log(err);
+
+                    // Show SweetAlert error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again.',
+                    });
+                }
+            }
+        }
+    </script>
+}
+
+
+
 
 

@@ -1623,7 +1623,7 @@ pre {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #858796
+    color: #858796;
 }
 
     .table td, .table th {
@@ -11516,3 +11516,7 @@ footer.sticky-footer {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
+
+/*Mine*/
+
+
